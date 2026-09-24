@@ -1,0 +1,15 @@
+[Unit]
+Description=Tony Montana Music Bot
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/tony-music
+ExecStart=/opt/tony-music/venv/bin/python /opt/tony-music/app.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
